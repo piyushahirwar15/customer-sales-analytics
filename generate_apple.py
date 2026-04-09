@@ -2,15 +2,12 @@
 generate_apple.py
 
 Generates and saves a visual representation of an apple as a PNG image.
-Requires: matplotlib, numpy
+Requires: matplotlib
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from matplotlib.patches import FancyBboxPatch
-from matplotlib.path import Path
 import matplotlib.patches as patches
+from matplotlib.path import Path
 
 
 def draw_apple(ax):
@@ -21,7 +18,7 @@ def draw_apple(ax):
     ax.add_patch(right_circle)
 
     # Slightly darker centre overlap for depth
-    center_ellipse = mpatches.Ellipse((0, -0.05), 0.55, 0.88, color="#BB1F00", zorder=3)
+    center_ellipse = patches.Ellipse((0, -0.05), 0.55, 0.88, color="#BB1F00", zorder=3)
     ax.add_patch(center_ellipse)
 
     # --- Indentation at top ---
@@ -33,7 +30,7 @@ def draw_apple(ax):
     ax.add_patch(top_fill)
 
     # --- Highlight / shine ---
-    shine = mpatches.Ellipse((-0.22, 0.22), 0.20, 0.30,
+    shine = patches.Ellipse((-0.22, 0.22), 0.20, 0.30,
                              angle=20, color="white", alpha=0.30, zorder=6)
     ax.add_patch(shine)
 
